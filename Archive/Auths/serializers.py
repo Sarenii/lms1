@@ -49,9 +49,9 @@ class RegisterSerializer(serializers.ModelSerializer):
 
             # Send OTP to user's email
             send_mail(
-                'Your OTP for Lab4GPS',
+                'Your OTP for lms1',
                 f'Your OTP is: {user.otp}',
-                'Lab4GPS <muenisarah159@gmail.com>',
+                'lms1 <muenisarah159@gmail.com>',
                 [user.email],
                 fail_silently=False,
             )
@@ -206,7 +206,7 @@ class ForgotPasswordSerializer(serializers.Serializer):
 
             # Send OTP to user's email
             send_mail(
-                'Reset Your Password - Lab4GPS',
+                'Reset Your Password - lms1',
                 f'Your OTP is: {user.reset_password_otp}',
                 'SomaNet <muenisarah159@gmail.com>',
                 [user.email],

@@ -1,4 +1,4 @@
-# Lab4GPS/settings.py
+# lms1/settings.py
 
 from pathlib import Path
 import os
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Lab4GPS.urls'
+ROOT_URLCONF = 'lms1.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Lab4GPS.wsgi.application'
+WSGI_APPLICATION = 'lms1.wsgi.application'
 
 # Database (Will be updated when we setup Supabase, keep sqlite3 for now)
 DATABASES = {

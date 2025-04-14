@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "Lab4GPS/wsgi.py", 
+        "src": "lms1/wsgi.py", 
         "use": "@vercel/python", 
         "config": { 
           "maxLambdaSize": "100mb",  
@@ -17,7 +17,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "Lab4GPS/wsgi.py"
+        "dest": "lms1/wsgi.py"
       }
     ]
   }

@@ -1,5 +1,5 @@
 """
-WSGI config for Lab4GPS project.
+WSGI config for lms1 project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Lab4GPS.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'lms1.settings')
 
 application = get_wsgi_application()

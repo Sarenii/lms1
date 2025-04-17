@@ -1,14 +1,26 @@
 # lms1/settings.py
-
 from pathlib import Path
 import os
+import tempfile
 from datetime import timedelta
 from dotenv import load_dotenv
+from django.core.files.storage import default_storage
 
-# Load environment variables
+# Load env vars early
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# ------------------------------------------------------------------
+# Writable media directory for Vercel’s read‑only file system
+# ------------------------------------------------------------------
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(tempfile.gettempdir(), "media")   # -> /tmp/media
+os.makedirs(MEDIA_ROOT, exist_ok=True)
+
+# If default_storage was imported earlier, repoint it
+default_storage.location = MEDIA_ROOT
+default_storage.base_url = MEDIA_URL
 
 # Securely load secret key
 SECRET_KEY = os.getenv('SECRET_KEY', 'su^4c*9yjoemujjkn3k%ekv2@$#18seu$9(02&4(1)4e6p-@x7')
@@ -101,8 +113,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
